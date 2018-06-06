@@ -5,6 +5,7 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
+const session = require('koa-session');
 
 const index = require('./routes/index')
 const users = require('./routes/users')
@@ -12,6 +13,10 @@ const api = require('./routes/api')
 
 // error handler
 onerror(app)
+
+//session handler
+app.keys = ['qweZSdasd']
+app.use(session(app));
 
 // middlewares
 app.use(bodyparser({
@@ -33,9 +38,24 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
+
 // routes
-app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
+app.use(async (ctx, next) => {
+  let username = ctx.session.username;
+  console.log(ctx.render)
+  if (username) {
+    next()
+  }else{
+    // await ctx.render("index",{title: " log",type: 0})
+    await ctx.redirect("/users/login")
+    // ctx.body = {
+    //   error: 0,
+    //   msg: "未登陆"
+    // }
+  }
+})
+app.use(index.routes(), index.allowedMethods())
 app.use(api.routes(), api.allowedMethods())
 
 // error-handling

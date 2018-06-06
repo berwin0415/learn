@@ -1,0 +1,16 @@
+{
+  "name" : "Album-koa", 
+  "script"      : "./bin/www",  
+  "cwd"         : "./",  
+  "watch": true, 
+  "ignore_watch" : [  
+    "public",
+    "logs",
+    "javascripts",
+    "stylesheets",
+    "views",
+    ".git"
+  ],
+  "error_file" : "/home/admin/git/.pm2/logs/app-err.log",  
+  "out_file"   : "/home/admin/git/.pm2/logs/app-out.log"
+}
