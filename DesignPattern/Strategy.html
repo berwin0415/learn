@@ -10,8 +10,14 @@
 
 <body>
 	<script>
-		console.log(a);
-		console.log(b);
+		const Strategy = (function() {
+			const OB = {};
+			return {
+				use: (Strategy, ...rest) => {
+					OB[Strategy](...rest);
+				}
+			}
+		})()
 	</script>
 </body>
 
