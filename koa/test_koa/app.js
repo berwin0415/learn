@@ -41,21 +41,16 @@ app.use(async (ctx, next) => {
 
 // routes
 app.use(users.routes(), users.allowedMethods())
+app.use(index.routes(), index.allowedMethods())
 app.use(async (ctx, next) => {
   let username = ctx.session.username;
   console.log(ctx.render)
   if (username) {
     next()
   }else{
-    // await ctx.render("index",{title: " log",type: 0})
-    await ctx.redirect("/users/login")
-    // ctx.body = {
-    //   error: 0,
-    //   msg: "未登陆"
-    // }
+    await ctx.redirect("/log-in")
   }
 })
-app.use(index.routes(), index.allowedMethods())
 app.use(api.routes(), api.allowedMethods())
 
 // error-handling
