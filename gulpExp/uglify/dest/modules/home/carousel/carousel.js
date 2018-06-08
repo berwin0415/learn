@@ -1,0 +1,1 @@
+define(function(require,exports,module){var Observer=require("modules/tools").Observer;MVC.addView("home.carousel",function(M){}),MVC.addCtrl("home.carousel",function(M,V){Observer.on("msg",function(){console.log("执行创建home.carousel视图方法"),V.create("home.carousel")})})});

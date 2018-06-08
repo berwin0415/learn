@@ -1,0 +1,1 @@
+define(function(require,exports,module){var Observer=require("modules/tools").Observer;MVC.addView("home.whatwedo",function(M){}),MVC.addCtrl("home.whatwedo",function(M,V){Observer.on("msg",function(){console.log("home.whatwedo模块开始创建视图"),V.create("home.whatwedo")})})});

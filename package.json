@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/berwin0415/learn#readme",
   "dependencies": {
+    "gulp-rename": "^1.2.3",
     "koa": "^2.5.1",
     "koa-parser": "^1.0.5",
     "koa-router": "^7.4.0",

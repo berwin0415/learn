@@ -6,4 +6,5 @@ gulp.task('moveFile',function () {
  })
 
  gulp.watch('js/demo.js',['moveFile']);
+ 
  gulp.task('default',['moveFile'])
