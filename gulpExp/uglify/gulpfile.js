@@ -2,6 +2,8 @@ const gulp = require('gulp');
 const uglify = require('gulp-uglify');
 const minifyCss = require('gulp-minify-css');
 const minifyHtml = require('gulp-minify-html');
+const minifyImg = require('gulp-imagemin');
+
 gulp.task('dealJs', () => {
 	gulp.src('src/**/*.js')
 		.pipe(uglify({
@@ -19,19 +21,26 @@ gulp.task('dealHtml', () => {
 		.pipe(minifyHtml())
 		.pipe(gulp.dest('dest/'))
 })
+gulp.task('dealImg', () => {
+	gulp.src('src/imgs/**')
+		.pipe(minifyImg())
+		.pipe(gulp.dest('dest/imgs/'))
+})
+
 gulp.task('moveImg', () => {
-    gulp.src('src/imgs/**')
-            .pipe(gulp.dest('dest/imgs'))
+	gulp.src('src/imgs/**')
+		.pipe(gulp.dest('dest/imgs'))
 })
 gulp.task('moveData', () => {
 	gulp.src('src/data/**')
 		.pipe(gulp.dest('dest/data'))
 })
 
-gulp.watch('src/**/*.js', ['dealJs'])
+
+// gulp.watch('src/**/*.js', ['dealJs'])
 
 
-gulp.task('deal', ['dealJs', 'dealCss', 'dealHtml'])
+gulp.task('deal', ['dealJs', 'dealCss', 'dealHtml', 'dealImg'])
 gulp.task('move', ['moveImg', 'moveData'])
 
 gulp.task('default', ['deal', 'move'])
