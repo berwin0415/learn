@@ -1,13 +1,13 @@
+var webpack = require('webpack');
+var UglifyJsPlugins = webpack.optimize.UglifyJsPlugin;
+
 module.exports = {
     // 入口文件
-    entry: {
-        ickt: './js/main.js',
-        hello: './js/demo.js'
-    },
+    entry: './js/main.js',
     // 发布文件
     output: {
         // 匹配多个文件
-        filename: './pack/[name].js'
+        filename: './pack/ickt.js'
     },
     // 配置css加载机
     module: {
@@ -17,6 +17,16 @@ module.exports = {
             test: /\.css$/,
             // 加载机顺序不要写反
             loader: 'style-loader!css-loader'
+        },
+        {
+            //图片加载机
+            test: /\.(jpg|png|gif)$/,
+            loader: 'url-loader?limit=4096'
         }]
-    }
+    },
+    plugins: [
+        new UglifyJsPlugins({
+            mangle: false
+        })
+    ]
 };
