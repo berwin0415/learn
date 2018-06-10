@@ -22,6 +22,19 @@ module.exports = {
             //图片加载机
             test: /\.(jpg|png|gif)$/,
             loader: 'url-loader?limit=4096'
+        },
+        {
+            //ts加载机
+            test: /\.ts$/,
+            loader: 'ts-loader'
+        },
+        {
+            //es6加载机
+            test: /\.es$/,
+            loader: 'babel-loader',
+            query: {
+                presets: ['es2015']
+            }
         }]
     },
     plugins: [
