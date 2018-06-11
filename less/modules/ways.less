@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+
+.size (@w, @h) {
+    width: @w;
+    height: @h;
+}
+.size (@w, @h) when (@w <200){
+    width: @w;
+    height: @h;
+    background: #000;
+}
+.size (@w, @h) when (@w <400) and (@w >=200){
+    width: @w;
+    height: @h;
+    background: #f00;
+}
+
+.size (@w, @h) when not (@w <600){
+    width: @w;
+    height: @h;
+    background: #0f0;
+}
+
+.box1 {
+    .size(150px, 200px);
+    float: left;
+}
+.box2 {
+    .size(250px, 200px);
+}
+.box3 {
+    .box1 !important;
+
+    .size(650px, 200px);
+}
+
+

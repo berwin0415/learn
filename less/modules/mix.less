@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+
+.link-1 {
+    width: 800px;
+    margin: 0 auto;
+    background: #666;
+    list-style: none;
+    margin-bottom: 20px;
+    li {
+        width: 100%;
+        text-align: center;
+        &:hover {
+            background-color: bisque;
+        }
+        a {
+            color: aqua;
+            &:hover {
+                color: blue;
+            }
+        }
+    }
+}
+.link-2 {
+    .link-1;
+}
+.link-3 {
+    .link-2
+}
