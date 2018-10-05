@@ -1,1 +1,0 @@
-define(function(require,exports,module){var Observer=require("modules/tools").Observer;MVC.addCtrl("home",function(M,V){$.ajax({url:"/data/home.json",type:"get",dataType:"json",data:"",success:function(data){console.log("home数据请求回来了"),M.add("home",data.data),Observer.trigger("msg")}})})});
