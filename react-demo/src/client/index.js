@@ -1,7 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import './index.less';
-import App from './app';
+
+import configureStore from './store/configureStore';
+import rootSaga from '../common/sagas'
+
+const store = configureStore();
+store.runSaga(rootSaga);
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}>
+    <div></div>
+</Provider>, document.getElementById('root'));
