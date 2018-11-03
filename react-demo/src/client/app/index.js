@@ -3,7 +3,10 @@ import logo from './logo.svg';
 import './index.less';
 
 class App extends Component {
+
   render() {
+    console.log(this);
+    
     return (
       <div className="App">
         <header className="App-header">

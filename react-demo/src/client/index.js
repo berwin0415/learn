@@ -7,6 +7,7 @@ import './index.less';
 
 import configureStore from './store/configureStore';
 import rootSaga from '../common/sagas'
+import App from './app'
 
 const history = createHistory();
 const store = configureStore();
@@ -14,5 +15,5 @@ const store = configureStore();
 
 
 ReactDOM.render(<Provider store={store}>
-    <div>aa</div>
+    <App history={history} /> 
 </Provider>, document.getElementById('root'));
