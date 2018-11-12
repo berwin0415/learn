@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
+import Hooks from './hooks';
 import './App.css';
-
-import Hooks from './hooks'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Hooks type="useState"></Hooks>
+<Hooks></Hooks>
       </div>
     );
   }
