@@ -78,7 +78,6 @@ DiyReact.render(<App stories={stories} />, document.getElementById("root"));
 
 /* 🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼🌼 */
 
-'str'.startsWith('s')
 
 function importFromBelow() {
   const TEXT_ELEMENT = 'TEXT_ELEMENT';
