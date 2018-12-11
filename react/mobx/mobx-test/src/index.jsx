@@ -25,7 +25,7 @@ class Store {
     this.todos.unshift(new Todo(title));
   }
   @action.bound add() {
-    let i = 1000000;
+    let i = 100;
     while (i > 0) {
       i--;
       this.todos.unshift(new Todo(Math.random()));
