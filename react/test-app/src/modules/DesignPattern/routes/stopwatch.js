@@ -2,16 +2,16 @@ import React from "react";
 
 import Bundle from "Client/bundle";
 
-const Detail = props => (
-  <Bundle load={() => import("../pages/detail")}>
+const StopWatch = props => (
+  <Bundle load={() => import("../pages/stopWatch")}>
     {Detail => <Detail {...props} />}
   </Bundle>
 );
 
 const route = {
-  title: "详情页",
-  path: "/detail",
+  title: "计时器",
+  path: "/stopwatch",
   exact: true,
-  component: Detail
+  component: StopWatch
 };
 export default route;
