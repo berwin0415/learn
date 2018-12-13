@@ -4,7 +4,7 @@ import Bundle from "Client/bundle";
 
 const StopWatch = props => (
   <Bundle load={() => import("../pages/stopWatch")}>
-    {Detail => <Detail {...props} />}
+    {StopWatch => <StopWatch {...props} />}
   </Bundle>
 );
 
