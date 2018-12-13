@@ -121,7 +121,7 @@ const RenderAll = (props) => {
 所谓依赖注入，指的是解决这样一个问题：逻辑 A 依赖于逻辑 B，如果让 A 直接依赖于 B，当然可行，但是 A 就没法做得通用了。依赖注入就是把 B 的逻辑以函数形式传递给 A，A 和 B 之间只需要对这个函数接口达成一致就行，如此一来，再来一个逻辑 C，也可以用一样的方法重用逻辑 A。
 
 ### 3. 如何利用 render props 实现共享组件之间的逻辑。
-```
+```jsx
 const Login = (props) => {
   const userName = getUserName();
 
@@ -146,4 +146,58 @@ const Login = (props) => {
     }
   }
 </Login>
+```
+
+## 七、组件设计模式(3): 提供者模式
+1. 提供者模式解决的问题；
+2. React 的 Context 功能对这种模式有很直接的支持；
+3. 提供者模式中 render props 的应用。
+```jsx
+const ThemeContext = React.createContext();
+const ThemeProvider = ThemeContext.Provider;
+const ThemeConsumer = ThemeContext.Consumer;
+
+class Subject extends React.Component {
+  render() {
+    return (
+      <ThemeConsumer>
+        {
+          (theme) => (
+            <h1 style={{color: theme.mainColor}}>
+              {this.props.children}
+            </h1>
+          )
+        }
+      </ThemeConsumer>
+    );
+  }
+}
+
+const Paragraph = (props, context) => {
+  return (
+    <ThemeConsumer>
+      {
+        (theme) => (
+          <p style={{color: theme.textColor}}>
+            {props.children}
+          </p>
+          )
+      }
+    </ThemeConsumer>
+  );
+};
+
+const Page = () => (
+  <div>
+    <Subject>这是标题</Subject>
+    <Paragraph>
+      这是正文
+    </Paragraph>
+  </div>
+);
+
+
+<ThemeProvider value={{mainColor: 'green', textColor: 'red'}} >
+    <Page />
+</ThemeProvider>
 ```
