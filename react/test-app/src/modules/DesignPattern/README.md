@@ -148,7 +148,7 @@ const Login = (props) => {
 </Login>
 ```
 
-## 七、组件设计模式(3): 提供者模式
+## 七、组件设计模式(4): 提供者模式
 1. 提供者模式解决的问题；
 2. React 的 Context 功能对这种模式有很直接的支持；
 3. 提供者模式中 render props 的应用。
@@ -201,3 +201,53 @@ const Page = () => (
     <Page />
 </ThemeProvider>
 ```
+## 八、组件设计模式(5): 组合模式
+组合组件模式要解决的是这样一类问题：父组件想要传递一些信息给子组件，但是，如果用 props 传递又显得十分麻烦。
+
+使用 Context 也不是完美解法，上一节我们介绍过，使用 React 在 v16.3.0 之后提供的新的 Context API，需要让“提供者”和“消费者”共同依赖于一个 Context 对象，而且消费者也要使用 render props 模式
+
+实例
+```jsx
+export default class Tabs extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            activeIndex: 0
+        }
+    }
+    render(){
+        const newChildren = React.Children.map(this.props.children, (child,index) => {
+            if(child.type) {
+                return React.cloneElement(child, {
+                    active: this.state.activeIndex === index,
+                    onClick: () => this.setState({activeIndex: index})
+                })
+            }else{
+                return child
+            }
+        })
+        return (
+            <>
+                {newChildren}
+            </>
+        )
+    }
+}
+
+Tabs.Item = props => {
+  const { active, onClick } = props;
+  const tabStyle = {
+    "maxWidth": "150px",
+    color: active ? "red" : "green",
+    border: active ? "1px red solid" : "0px"
+  };
+  return (
+    <h1 style={tabStyle} onClick={onClick}>
+      {props.children}
+    </h1>
+  );
+};
+```
+
+## 九、单元测试
+## 十、React 状态管理（1）：组件状态
