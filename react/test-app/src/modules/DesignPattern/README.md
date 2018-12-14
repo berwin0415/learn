@@ -251,3 +251,12 @@ Tabs.Item = props => {
 
 ## 九、单元测试
 ## 十、React 状态管理（1）：组件状态
+1. 如何确定数据以 props 还是以 state 形式存在；
+2. 更新 state 的正确方法；
+3. setState 通常并不会立刻更新 state；
+4. 函数参数形式的 setState 才是推荐的用法。
+## 十一、React 状态管理（2）：Redux使用模式
+### 适合 Redux 的场景
+当一个 React 应用采用 Redux 之后，开发者往往就会陷入这样的纠结：对于某个状态，到底是放在 Redux 的 Store 中呢，还是放在 React 组件自身的状态中呢？
+- 第一步，看这个状态是否会被多个 React 组件共享。
+- 第二步，看这个组件被 unmount 之后重新被 mount，之前的状态是否需要保留。
