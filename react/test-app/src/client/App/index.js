@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Redirect, Switch } from "react-router";
+import "./index.css"
 
 export default class App extends React.Component {
   render() {
