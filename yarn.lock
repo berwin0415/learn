@@ -950,6 +950,11 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
+mpvue@^1.0.18:
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/mpvue/-/mpvue-1.0.18.tgz#f784e5659641b6b338f12b6dc3dbc2c4879287f6"
+  integrity sha512-d/QAIKy6UQeTOLAfdNmZNwT/9tbgPmKe788YhDTIVtOLz0aqoCs1H2j5sPKzxZkTNMZrVg2UOoFbxK1nXSbajQ==
+
 ms@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
