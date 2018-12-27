@@ -108,25 +108,112 @@
 # 9.10 类方法
 
 
+# class Student():
+#     # 类变量
+#     # name = 'qiyue'
+#     # age = 0
+#     sum = 0
+#     # 实例方法，定义时传入self
+
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#         self.__class__.sum += 1
+#         print("当前学生总数为： " + str(self.__class__.sum))
+
+#     def do_homework(self):
+#         print('homework')
+
+#     # 定义类方法
+#     @classmethod
+#     def plus_sum(cls):
+#         cls.sum += 1
+#         print(cls.sum)
+
+# student1 = Student('石敢当', 18)
+# Student.plus_sum()
+# student2 = Student('喜小乐', 18)
+# Student.plus_sum()
+# student3 = Student('小诺', 18)
+# Student.plus_sum()
+
+#区别：
+    # 实例与类
+
+# 9.11 静态方法
+
+
+# class Student():
+#     # 类变量
+#     # name = 'qiyue'
+#     # age = 0
+#     sum = 0
+#     # 实例方法，定义时传入self
+
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#         self.__class__.sum += 1
+#         print("当前学生总数为： " + str(self.__class__.sum))
+
+#     def do_homework(self):
+#         print('homework')
+
+#     # 定义类方法
+#     @classmethod
+#     def plus_sum(cls):
+#         cls.sum += 1
+#         print(cls.sum)
+
+#     @staticmethod
+#     def add(x, y):
+#         print("This is a static method")
+
+# student1 = Student('石敢当', 18)
+# Student.add(1,2)
+# student1.add(1,2)
+
+# 1、实例和类都可以调用
+# 2. 静态方法可以访问类变量
+# 3、静态方法和类方法都不能访问实例变量
+
+# 9.12 成员可见性：公有和私有
+
+
 class Student():
-    # 类变量
-    # name = 'qiyue'
-    # age = 0
-    sum1 = 0
-    # 实例方法，定义时传入self
+    sum = 0
 
     def __init__(self, name, age):
         self.name = name
         self.age = age
-        self.__class__.sum1 += 1
-        print("当前学生总数为： " + str(self.__class__.sum1))
+        self.__score = 0
+        self.__class__.sum += 1
 
     def do_homework(self):
         print('homework')
 
+    def marking(self,score):
+        print(self.__score)
+        self.__score = score
+        return self.__score
+    # 定义类方法
+    @classmethod
+    def plus_sum(cls):
+        cls.sum += 1
+        print(cls.sum)
+
+    @staticmethod
+    def add(x, y):
+        print("This is a static method")
 
 student1 = Student('石敢当', 18)
-student2 = Student('喜小乐', 18)
-student3 = Student('小诺', 18)
+result = student1.marking(59)
+print(result)
+student1.__score = -1
 
-# print(student1.name)
+# 1. 外部访问造成类内部变量的不安全性
+# 2. 外部调用类方法，在类方法内修改变实例变量
+# 3. 通过在变量或方法前加'__'双下划线，表示私有变量或者方法，不要在后面加双下划线
+
+# 9.13 没有什么是不能访问的
+# 1.双下划线的私有变量实际上是python自动在变量名前添加'_类名'
