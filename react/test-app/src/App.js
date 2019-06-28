@@ -2,7 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import berwin from 'berwin-tools'
 function App() {
+  console.log(berwin)
   return (
     <div className="App">
       <header className="App-header">

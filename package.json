@@ -5,6 +5,7 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
+    "berwin-tools": "^1.0.0",
     "create-react-app": "^3.0.0",
     "express": "^4.16.4",
     "express-graphql": "^0.7.1",
