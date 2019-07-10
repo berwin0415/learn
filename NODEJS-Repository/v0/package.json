@@ -1,0 +1,14 @@
+{
+    "name": "api-v0",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "start": "node app.js",
+        "prd": "pm2 start app.js"
+    },
+    "dependencies": {
+        "koa": "^2.7.0",
+        "koa-bodyparser": "^4.2.1",
+        "koa-router": "^7.4.0"
+    }
+}
