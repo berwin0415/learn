@@ -1,13 +1,15 @@
 const Koa = require('koa');
 const app = new Koa();
 const bodyparser = require('koa-bodyparser')
-
+const json = require('koa-json')
 const index = require('./routes/index')
 
 
 app.use(bodyparser({
     enableTypes: ['json', 'form', 'text']
 }))
+
+app.use(json())
 
 app.use(async (ctx, next) => {
     // 允许来自所有域名请求
@@ -55,6 +57,7 @@ app.use(async (ctx, next) => {
 app.use(index.routes(), index.allowedMethods())
 
 app.on('error', (err, ctx) => {
+    // ctx.body={err,ctx}
     console.error('server error', err, ctx)
 });
 

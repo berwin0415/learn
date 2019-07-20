@@ -1,12 +1,24 @@
-const myPromise = require('./myPromise')
-
-const p = new myPromise((resolve,reject)=> {
-    setTimeout(() => {
-        // const num = Math.floor(Math.round() * 100)%2
-        // console.log("num",num);
-        const num = 1
-        
-        num ? resolve("resove:" + num):reject("reject"+num)
-    }, 1000);
+const MyPromise = require('./myPromise')
+let p = new MyPromise(function (resolve, reject) {
+    console.log('start')
+    setTimeout(function () {
+        resolve('data1')
+    }, 2000)
 })
-p.then(e => console.log(e),e => console.log(e))
+p.then(
+    (v) => {
+        console.log('success： ' + v)
+    },
+    (v) => {
+        console.log('error： ' + v)
+    }
+)
+p.then(
+    (v) => {
+        console.log('success： ' + v)
+    },
+    (v) => {
+        console.log('error： ' + v)
+    }
+)
+console.log('end')
