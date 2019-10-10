@@ -1,0 +1,18 @@
+{
+  "apps": [
+    {
+      "name": "test",
+      "cwd": "/server/hanbw.top/v0",
+      "script": "./app.js",
+      "max_restarts": 300,
+      "error_file": "./logs/test-err.log",
+      "out_file": "./logs/test-out.log",
+      "log_date_format"  : "YYYY-MM-DD HH:mm Z",
+      "watch": true,
+      "ignore_watch":[
+          "node_modules",
+          "logs"
+      ]
+    }
+  ]
+}
