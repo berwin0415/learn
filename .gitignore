@@ -9,6 +9,11 @@ node_modules
 # testing
 /coverage
 
+# lock
+yarn.lock
+package-lock.json
+*.lock
+
 # # production
 # /build
 
