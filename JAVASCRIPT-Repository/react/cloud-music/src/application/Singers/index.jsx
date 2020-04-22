@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import Horizen from "../../baseUI/horizen-item";
 import { categoryTypes, alphaTypes } from "../../api/config";
 import { NavContainer, ListContainer, List, ListItem } from "./style";
@@ -10,39 +10,40 @@ import {
   refreshMoreSingerList,
   changePullUpLoading,
   changePullDownLoading,
-  refreshMoreHotSingerList
+  refreshMoreHotSingerList,
 } from "./store/actionCreators";
 import Scroll from "./../../baseUI/scroll/index";
 import { connect } from "react-redux";
 import Loading from "../../baseUI/loading";
 import LazyLoad, { forceCheck } from "react-lazyload";
+import { CategoryDataContext, CHANGE_ALPHA, CHANGE_CATEGORY } from "./data";
 
 function Singers(props) {
-  let [category, setCategory] = useState("");
-  let [alpha, setAlpha] = useState("");
+  const { data, dispatch } = useContext(CategoryDataContext);
+  const { category, alpha } = data.toJS();
 
   const {
     singerList,
     enterLoading,
     pullUpLoading,
     pullDownLoading,
-    pageCount
+    pageCount,
   } = props;
 
   const {
     getHotSingerDispatch,
     updateDispatch,
     pullDownRefreshDispatch,
-    pullUpRefreshDispatch
+    pullUpRefreshDispatch,
   } = props;
 
-  let handleUpdateAlpha = val => {
-    setAlpha(val);
+  let handleUpdateAlpha = (val) => {
+    dispatch({ type: CHANGE_ALPHA, data: val });
     updateDispatch(category, val);
   };
 
-  let handleUpdateCatetory = val => {
-    setCategory(val);
+  let handleUpdateCatetory = (val) => {
+    dispatch({ type: CHANGE_CATEGORY, data: val });
     updateDispatch(val, alpha);
   };
 
@@ -93,13 +94,13 @@ function Singers(props) {
         <Horizen
           list={categoryTypes}
           title={"分类 (默认热门):"}
-          handleClick={val => handleUpdateCatetory(val)}
+          handleClick={(val) => handleUpdateCatetory(val)}
           oldVal={category}
         ></Horizen>
         <Horizen
           list={alphaTypes}
           title={"首字母:"}
-          handleClick={val => handleUpdateAlpha(val)}
+          handleClick={(val) => handleUpdateAlpha(val)}
           oldVal={alpha}
         ></Horizen>
       </NavContainer>
@@ -119,14 +120,14 @@ function Singers(props) {
   );
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   singerList: state.getIn(["singers", "singerList"]),
   enterLoading: state.getIn(["singers", "enterLoading"]),
   pullUpLoading: state.getIn(["singers", "pullUpLoading"]),
   pullDownLoading: state.getIn(["singers", "pullDownLoading"]),
-  pageCount: state.getIn(["singers", "pageCount"])
+  pageCount: state.getIn(["singers", "pageCount"]),
 });
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     getHotSingerDispatch() {
       dispatch(getHotSingerList());
@@ -155,7 +156,7 @@ const mapDispatchToProps = dispatch => {
       } else {
         dispatch(getSingerList(category, alpha));
       }
-    }
+    },
   };
 };
 export default connect(
