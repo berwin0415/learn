@@ -52,3 +52,5 @@ export const ListItem = styled.div`
     font-weight: 500;
   }
 `;
+
+export const EnterLoading = styled.div``
