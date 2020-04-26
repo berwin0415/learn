@@ -1,0 +1,1 @@
+export const ACTION1 = 'demo1/ACTION1'
