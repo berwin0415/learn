@@ -21,10 +21,10 @@ function Home(props) {
   let o2 = produce(o1, (draft) => {
     draft.q = 1;
   });
-//   let o2 = o1
-//   o2.p.x =2
-  console.log("immer",o1,o2,o1===o2,);
-  console.log("immer2",o1.p===o2.p,);
+  //   let o2 = o1
+  //   o2.p.x =2
+  console.log("immer", o1, o2, o1 === o2);
+  console.log("immer2", o1.p === o2.p);
 
   return (
     <div>
