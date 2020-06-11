@@ -36,16 +36,6 @@ class a {
     }
 }
 
-{
-    name:'',
-        children: [{
-            name:'',
-            children:[{
-
-            }]
-        }]
-}
-
 const quickSort = arr => {
     // 找到数组标尺元素下角标
     const findCenter = (arr, left, right) => {
