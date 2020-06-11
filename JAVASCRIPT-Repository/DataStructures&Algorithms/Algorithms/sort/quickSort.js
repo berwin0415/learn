@@ -22,6 +22,29 @@
 //     }
 //     return sort(arr)
 // }
+class a {
+    constructor(){
+        const obj = {
+            on:function (args) {
+                
+            },
+            publish:function (name, args) {
+                
+            }
+        }
+
+    }
+}
+
+{
+    name:'',
+        children: [{
+            name:'',
+            children:[{
+
+            }]
+        }]
+}
 
 const quickSort = arr => {
     // 找到数组标尺元素下角标

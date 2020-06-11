@@ -27,7 +27,8 @@ export const immer = produce((draft = initState, action) => {
     default:
       return draft;
   }
-});
+})
+
 // export const immer = (state = initState, action) => {
 //   switch (action.type) {
 //     case "ADD_AGE":
