@@ -1,30 +1,31 @@
-Promise.all = function(promises){
-    if(!Array.isArray(promises)){
-      throw new TypeError('You must pass array')
+Promise.all = function (promises) {
+  if (!Array.isArray(promises)) {
+    throw new TypeError("You must pass array");
+  }
+
+  return new Promise(function (resolve, reject) {
+    let count = promises.length;
+    const result = Array(count).fill(null);
+
+    function resolver(i) {
+      return function (value) {
+        result[i] = value;
+        resolveAll();
+      };
     }
 
-    return new Promise(function(resolve,reject){
-      var result = [],
-          count = promises.length;
+    function rejecter(reason) {
+      reject(reason);
+    }
 
-      function resolver(value){
-          resolveAll(value)
+    function resolveAll() {
+      if (result.every((i) => i)) {
+        resolve(result);
       }
+    }
 
-      function rejecter(reason){
-        reject(reason)
-      }
-
-      function resolveAll(value){
-        result.push(value)
-
-        if(--count ==0){
-          resolve(result)
-        }
-      }
-
-      for(var i=0;i<promises.length;i++){
-        promises[i].then(resolver,rejecter)
-      }
-    })
-  }
+    for (var i = 0; i < promises.length; i++) {
+      promises[i].then(resolver(i), rejecter);
+    }
+  });
+};

@@ -18,4 +18,4 @@ function deepClone(data) {
   }
 }
 const d = [{ a: 1 }, 2, { b: ["3", 4] }];
-console.log(deepClone(d), deepClone(d) === d);
+console.log(deepClone(d), deepClone(d)[0] === d[0]);

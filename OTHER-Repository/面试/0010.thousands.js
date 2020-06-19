@@ -3,6 +3,7 @@ function toThousands1(number) {
   while (/\d+(\d{3})+/.test(number)) {
     number = number.replace(/(\d+)(\d{3})/, "$1,$2");
   }
+  return number
 }
 
 toThousands1("32456644");
@@ -20,4 +21,4 @@ function toThousands2(number) {
   return str;
 }
 
-console.log(toThousands2("32456644"));
+console.log(toThousands1("32456644"));
