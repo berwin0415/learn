@@ -1,4 +1,4 @@
-console.log(template("my name is {{name}}, age is {{age }}", { name: "tom", age: 16 }))
+console.log(template("my name is {{name}}, age is {{ age }}", { name: "tom", age: 16 }))
 
 function template(str, data) {
   return str.replace(/\{\{(.+?)\}\}/g, (match, $1) => {
