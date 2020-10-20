@@ -5,12 +5,15 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { registerMicroApps, start } from "qiankun";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+const render = ({ loading = false } = {}) =>
+  ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
+render();
+const loader = (loading) => render({ loading });
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
@@ -18,15 +21,17 @@ ReactDOM.render(
 serviceWorker.unregister();
 registerMicroApps([
   {
-    name: "react app", // app name registered
-    entry: "//localhost:7100",
-    container: "#yourContainer",
+    name: "demo1", // app name registered
+    entry: "//localhost:5001/demo1/index.html",
+    container: "#demo1",
+    loader,
     activeRule: "/demo1",
   },
   {
     name: "vue app",
     entry: "//localhost:7102",
-    container: "#yourContainer2",
+    container: "#demo1",
+    loader,
     activeRule: "/demo2",
   },
 ]);
