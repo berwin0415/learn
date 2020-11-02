@@ -16,14 +16,14 @@ public class Demo01Final {
         System.out.println(num1); // 10
         num1 = 20;
         System.out.println(num1); // 20
-
+        
         // 一旦使用final用来修饰局部变量，那么这个变量就不能进行更改。
         // “一次赋值，终生不变”
         final int num2 = 200;
         System.out.println(num2); // 200
 
-//        num2 = 250; // 错误写法！不能改变！
-//        num2 = 200; // 错误写法！
+        // num2 = 250; // 错误写法！不能改变！
+        // num2 = 200; // 错误写法！
 
         // 正确写法！只要保证有唯一一次赋值即可
         final int num3;
@@ -41,7 +41,7 @@ public class Demo01Final {
 
         final Student stu2 = new Student("高圆圆");
         // 错误写法！final的引用类型变量，其中的地址不可改变
-//        stu2 = new Student("赵又廷");
+        // stu2 = new Student("赵又廷");
         System.out.println(stu2.getName()); // 高圆圆
         stu2.setName("高圆圆圆圆圆圆");
         System.out.println(stu2.getName()); // 高圆圆圆圆圆圆

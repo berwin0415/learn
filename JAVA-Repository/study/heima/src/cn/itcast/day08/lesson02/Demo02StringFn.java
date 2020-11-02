@@ -1,7 +1,10 @@
 package cn.itcast.day08.lesson02;
 
 public class Demo02StringFn {
+
+
     public static void main(String[] args) {
+
         // 获取字符串长度 length
         int len = "HELLO WORLD".length();
         System.out.println(len);
