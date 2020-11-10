@@ -948,7 +948,15 @@ public class GenericDemo {
 }
 ~~~
 
-程序在运行时发生了问题**java.lang.ClassCastException**。                                                                                             为什么会发生类型转换异常呢？                                                                                                                                       我们来分析下：由于集合中什么类型的元素都可以存储。导致取出时强转引发运行时 ClassCastException。                                                                                                                                                       怎么来解决这个问题呢？                                                                                                                                                           Collection虽然可以存储各种对象，但实际上通常Collection只存储同一类型对象。例如都是存储字符串对象。因此在JDK5之后，新增了**泛型**(**Generic**)语法，让你在设计API时可以指定类或方法支持泛型，这样我们使用API的时候也变得更为简洁，并得到了编译时期的语法检查。
+程序在运行时发生了问题**java.lang.ClassCastException**。
+
+为什么会发生类型转换异常呢？
+
+​	由于集合中什么类型的元素都可以存储。导致取出时强转引发运行时 ClassCastException。
+
+怎么来解决这个问题呢？
+
+​	Collection虽然可以存储各种对象，但实际上通常Collection只存储同一类型对象。例如都是存储字符串对象。因此在JDK5之后，新增了**泛型**(**Generic**)语法，让你在设计API时可以指定类或方法支持泛型，这样我们使用API的时候也变得更为简洁，并得到了编译时期的语法检查。
 
 * **泛型**：可以在类或方法中预支地使用未知的类型。
 
@@ -1249,4 +1257,3 @@ public static void getElement1(Collection<? extends Number> coll){}
 public static void getElement2(Collection<? super Number> coll){}
 ~~~
 
-# 
