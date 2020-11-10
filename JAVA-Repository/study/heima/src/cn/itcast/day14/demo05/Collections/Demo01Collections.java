@@ -1,4 +1,4 @@
-package com.itheima.demo05.Collections;
+package cn.itcast.day14.demo05.Collections;
 
 import java.util.ArrayList;
 import java.util.Collections;
