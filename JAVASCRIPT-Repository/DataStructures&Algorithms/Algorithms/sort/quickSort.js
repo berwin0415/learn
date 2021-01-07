@@ -38,18 +38,19 @@ class a {
 
 const quickSort = arr => {
     // 找到数组标尺元素下角标
-    const findCenter = (arr, left, right) => {
-        let flag = arr[left]
-        let idx = left + 1;
-        for (let i = idx; i <= right; i++) {
+    const findCenter = (arr, start, end) => {
+        let flag = arr[start]
+        let idx = start + 1;
+        for (let i = idx; i <= end; i++) {
             if (arr[i] < flag) {
                 [arr[i], arr[idx]] = [arr[idx], arr[i]]
                 idx++
             }
         }
-        [arr[idx - 1], arr[left]] = [arr[left], arr[idx - 1]]
+        [arr[idx - 1], arr[start]] = [arr[start], arr[idx - 1]]
         return idx
     }
+    // 递归排序，直到左右指针相等为止
     const sort = (arr, left, right) => {
         if (left < right) {
             const center = findCenter(arr, left, right);
