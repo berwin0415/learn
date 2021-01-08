@@ -1,4 +1,5 @@
-const lengthOfLongestSubstring = function (s) {
+// 最长不重复子串
+function lengthOfLongestSubstring(s:string): number {
   // 哈希集合，记录每个字符是否出现过
   const occ = new Set();
   const n = s.length;
@@ -11,6 +12,7 @@ const lengthOfLongestSubstring = function (s) {
       occ.delete(s.charAt(i - 1));
       console.log(2, occ);
     }
+    // 哈希集合中存在，不移动右指针
     while (rk + 1 < n && !occ.has(s.charAt(rk + 1))) {
       // 不断地移动右指针
       occ.add(s.charAt(rk + 1));
@@ -20,8 +22,9 @@ const lengthOfLongestSubstring = function (s) {
     console.log(4, occ);
     // 第 i 到 rk 个字符是一个极长的无重复字符子串
     ans = Math.max(ans, rk - i + 1);
+    console.log(5, Array.from(occ).join(''));
   }
   return ans;
-};
+}
 
-console.log(lengthOfLongestSubstring("abcdebctyuioy"));
+console.log(lengthOfLongestSubstring("abcabcbeb"));
