@@ -2,7 +2,7 @@
 
 function isValid(s: string): boolean {
   const stack = [];
-  const map = {
+  const map: { [key: string]: string } = {
     ")": "(",
     "}": "{",
     "]": "[",
