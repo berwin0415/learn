@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 双飞翼布局 */
+      body {
+        min-width: 550px;
+      }
+      .col {
+        float: left;
+      }
+      #main {
+        width: 100%;
+        height: 200px;
+        background-color: #ccc;
+      }
+      #main-wrap {
+        margin: 0 190px; /*这是圣杯和双飞翼最明显的区别，在main内部使用的是margin，而圣杯是直接在container部分使用padding*/
+      }
+      #left,
+      #right {
+        width: 190px;
+        height: 200px;
+        background-color: #0000ff;
+      }
+      #left {
+        margin-left: -100%;
+      }
+      #right {
+        margin-left: -190px;
+        background-color: #ff0000;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 双飞翼布局 -->
+    <div id="container">
+      <div id="main" class="col">
+        <div id="main-wrap">#main</div>
+      </div>
+      <div id="left" class="col">#left</div>
+      <div id="right" class="col">#right</div>
+    </div>
+  </body>
+</html>
+
+1. 浏览器怎么解析 html，到完成页面渲染
+    - css 的解析会阻塞 dom 的解析么？阻塞页面的渲染？
+     - js 呢？
+     - js 加载是异步还是同步的
+            - async 
+            - defer
+  
+2. dom 渲染
+- 减少 dom 数量的方法？
+    - 优化 css
+    - 虚拟列表
+
+ - 一次性给你大量的 dom 怎么优化
+    - 为什么？回流和重绘
+        - transform 独立渲染层
+        - 怎么减少 DOM 的操作
+            - 虚拟 dom
+            - 
+3.  Promise 
+    - 类方法，race、resolve、reject、all
+    - Promise.all 实现下
+
+4. taro
+    - 解决什么问题
+        - 小程序跨端 
+    -  微信小程序
+        - 渲染方式
+        - 通信方式
+
+5. node
+    - 是什么？JS 的 runtime
+    - 模块加载？
+    - 错误处理，回调函数 
+        readFile((err, data) => {})
+    - 错误、日志、监控、报警
+    - 超时处理？
+        
+
+6. React    
+    - 函数组件和类组件的区别
+    - HOC
+         - 实现一个显示当前组件名称的HOC

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="input" />
+    <div id="box"></div>
+    <!-- <script>
+      const input = document.getElementById("input");
+      const box = document.getElementById("box");
+      const container = {};
+      Object.defineProperty(container, "value", {
+        get() {
+          return container.value;
+        },
+        set(value) {
+            box.innerHTML = value
+        },
+      });
+      input.oninput = function(e){
+        container.value = e.target.value
+      }
+    </script> -->
+    <script>
+      const input = document.getElementById("input");
+      const box = document.getElementById("box");
+      const container = {};
+      const targetObj = new Proxy(container, {
+        get(target, key) {
+          return target[key];
+        },
+        set(target, key, value) {
+          box.innerHTML = value;
+        },
+      });
+      input.oninput = function (e) {
+        targetObj.value = e.target.value;
+      };
+    </script>
+  </body>
+</html>
