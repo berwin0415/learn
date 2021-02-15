@@ -1,6 +1,8 @@
 enum Direction {
-    Up = 1,
-    Down,
-    Left,
-    Right
+    Up = 'up',
+    Down = 'down',
+    Left= 'left',
+    Right= 'right'
 }
+
+// console.log(Direction.Down)

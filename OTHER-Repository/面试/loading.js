@@ -1,5 +1,5 @@
 // 输入一个日期 返回几秒前 几天前或者几月前；
-// 实现一个方法，参数是一个 generator 函数，执行结果是执行完所有 generator 中的 yield 
+// 实现一个方法，参数是一个 generator 函数，执行结果是执行完所有 generator 中的 yield
 // // 获取页面所有 img 并且下载
 // // React Hook 原理 https://www.jianshu.com/p/b9ac8fa849f1
 // // 事件委托 ===> e.currentTarget 始终返回的是绑定事件的元素 target是触发事件的最具体的元素
@@ -22,3 +22,21 @@
 // 背包问题
 // padding百分比，为相对于父类宽度
 // css实现环形进度条
+
+function twoDiff(nums, target) {
+  const map = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    const plus = target + nums[i];
+    const reverse = nums[i]- target
+    console.log(plus, reverse);
+    if (map.has(nums[i])) {
+      return [nums[i], map.get(nums[i])];
+    }
+    map.set(reverse, nums[i]);
+    map.set(plus, nums[i]);
+    console.log(map)
+  }
+  return null;
+}
+
+console.log(twoDiff([1, 2, 6, 10], 8));
