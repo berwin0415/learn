@@ -156,7 +156,7 @@ public class Demo01ArrayListMethod {
 
 ## 二、 java.lang
 
-### 1.1 String类
+### 2.1 String类
 
 `java.lang.String `类代表字符串。Java程序中所有的字符串文字（例如 `"abc"`）都可以被看作是实现此类的实例。
 
@@ -268,6 +268,47 @@ public class String_Demo04 {
     String s = "aa|bb|cc"; 
     String[] strArray = s.split("|"); // ["aa","bb","cc"]
   }
+}
+```
+
+### 2.2 Arrays类
+
+`Arrays` 类包含用来操作数组的各种方法
+
+**静态方法**
+
+- `public static String toString(int[] a) `：返回指定数组内容的字符串表示形式。
+- `public static void sort(int[] a) `：对指定的 int 型数组按数字升序进行排序。
+
+**使用**
+
+### 2.3 Math类
+
+`Math`类包含用于执行基本数学运算的方法，如初等指数、对数、平方根和三角函数。
+
+**静态方法**
+
+- `public static double abs(double a) `：返回 double 类型的绝对值。
+- `public static double ceil(double a) `：返回大于等于参数的最小的整数。
+- `public static double floor(double a)` ：返回小于等于参数最大的整数。
+- `public static long round(double a)` ：返回最接近参数的 long。(相当于四舍五入方法)
+
+**使用**
+
+```java
+public class MathTest {
+    public static void main(String[] args) {
+        double d1 = Math.abs(‐5);    // 5
+        
+        double d2 = Math.ceil(3.3);  // 4.0
+		double d3 = Math.ceil(‐3.3); // ‐3.0
+        
+        double d4 = Math.floor(3.3); // 3.0
+		double d5 = Math.floor(‐3.3);// ‐4.0
+		
+        long d6 = Math.round(5.5);   // 6.0
+		long d7 = Math.round(5.4);   // 5.0
+    }
 }
 ```
 
