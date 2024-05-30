@@ -11,6 +11,6 @@
         "koa-bodyparser": "^4.2.1",
         "koa-json": "^2.0.2",
         "koa-router": "^7.4.0",
-        "mysql2": "^1.6.5"
+        "mysql2": "^3.9.8"
     }
 }
